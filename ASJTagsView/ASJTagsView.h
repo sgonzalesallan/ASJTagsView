@@ -43,6 +43,12 @@ typedef NS_ENUM(NSInteger, TagColorTheme)
   TagColorThemeStrawberry
 };
 
+typedef NS_ENUM(NSInteger, Orientation)
+{
+    Horizontal,
+    Vertical
+};
+
 @interface ASJTagsView : UIScrollView
 
 /**
@@ -89,6 +95,9 @@ typedef NS_ENUM(NSInteger, TagColorTheme)
  *  A few predefined color themes you can use apart from setting a color of your own. Note that setting the 'tagColor' property will override any theme you have set. 'tagColor' needs to be 'nil' in order for color themes to work.
  */
 @property (assign, nonatomic) IBInspectable TagColorTheme tagColorTheme;
+
+
+@property (assign, nonatomic) IBInspectable Orientation orientation;
 
 /**
  *  A block to handle taps on the tags.

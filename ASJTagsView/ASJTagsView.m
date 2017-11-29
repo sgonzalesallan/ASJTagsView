@@ -281,24 +281,35 @@
      tagView.frame = rect;
      x += (size.width + padding);
      
-     if ((x >= containerWidth - padding) && (idx > 0))
-     {
-       x = padding;
-       y += size.height + padding;
        
-       CGRect rect = tagView.frame;
-       rect.origin = CGPointMake(x, y);
-       rect.size = size;
-       tagView.frame = rect;
+       if (_orientation == Vertical) {
+           if ((x >= containerWidth - padding) && (idx > 0))
+           {
+               x = padding;
+               y += size.height + padding;
+               
+               CGRect rect = tagView.frame;
+               rect.origin = CGPointMake(x, y);
+               rect.size = size;
+               tagView.frame = rect;
+               
+               x += (size.width + padding);
+           }
+           [self addSubview:tagView];
+           
+           // content size
+           CGFloat bottom = tagView.frame.origin.y + tagView.frame.size.height + padding;
+           self.contentSize = CGSizeMake(containerWidth, bottom);
+       } else {
+           [self addSubview:tagView];
+           
+           // content size
+           self.contentSize = CGSizeMake(x, self.frame.size.height);
+       }
        
-       x += (size.width + padding);
-     }
+    
      
-     [self addSubview:tagView];
      
-     // content size
-     CGFloat bottom = tagView.frame.origin.y + tagView.frame.size.height + padding;
-     self.contentSize = CGSizeMake(containerWidth, bottom);
    }];
 }
 
