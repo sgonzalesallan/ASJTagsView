@@ -80,8 +80,8 @@
   _tagText = tagText;
   
   [UIView performWithoutAnimation:^{
-    [_tagButton setTitle:tagText forState:UIControlStateNormal];
-    [_tagButton layoutIfNeeded];
+      [self->_tagButton setTitle:tagText forState:UIControlStateNormal];
+      [self->_tagButton layoutIfNeeded];
   }];
 }
 
