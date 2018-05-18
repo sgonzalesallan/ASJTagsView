@@ -261,9 +261,9 @@
    {
      ASJTag *tagView = self.tagView;
      tagView.tagText = tag;
-     tagView.layer.borderColor = _borderColor.CGColor;
-     tagView.layer.borderWidth = _borderWidth;
-     tagView.layer.cornerRadius = _cornerRadius;
+       tagView.layer.borderColor = self->_borderColor.CGColor;
+       tagView.layer.borderWidth = self->_borderWidth;
+       tagView.layer.cornerRadius = self->_cornerRadius;
      tagView.tag = idx;
      
      CGSize size = [tagView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize
@@ -282,7 +282,7 @@
      x += (size.width + padding);
      
        
-       if (_orientation == Vertical) {
+       if (self->_orientation == Vertical) {
            if ((x >= containerWidth - padding) && (idx > 0))
            {
                x = padding;
@@ -341,15 +341,15 @@
 {
   [tagView setTapBlock:^(NSString *tagText, NSInteger idx)
    {
-     if (_tapBlock) {
-       _tapBlock(tagText, idx);
+       if (self->_tapBlock) {
+           self->_tapBlock(tagText, idx);
      }
    }];
   
   [tagView setDeleteBlock:^(NSString *tagText, NSInteger idx)
    {
-     if (_deleteBlock) {
-       _deleteBlock(tagText, idx);
+     if (self->_deleteBlock) {
+       self->_deleteBlock(tagText, idx);
      }
    }];
 }

@@ -37,8 +37,8 @@
 
 @implementation ASJTag
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
+  [super awakeFromNib];
   self.crossImage = self.defaultCrossImage;
 }
 
